@@ -4,8 +4,6 @@
 
 Created using:
 
-MongoDB - Document Database
-
 Express(.js) - Node.js web framework
 
 React(.js) - client-side JavaScript framework
