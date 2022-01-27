@@ -31,10 +31,10 @@ Reference: https://swapi.dev/documentation
 ## Here is a Loading Circle you see while things render, if needed. You also see the pagination at the bottom!
 ![image](https://user-images.githubusercontent.com/88402657/151316332-2c67ac44-52ff-47e1-837f-7925ce7005fc.png)
 
-## Planets Section
+## Planets Section with my cursor on another tab to see hover effect.
 ![image](https://user-images.githubusercontent.com/88402657/151316442-e22e7f94-24fa-49ee-8fd0-0d4415e0760f.png)
 
-## Starships Section
+## Starships Section.
 ![image](https://user-images.githubusercontent.com/88402657/151316529-f833517d-841d-43f7-a893-472e94c7e2f4.png)
 
 
