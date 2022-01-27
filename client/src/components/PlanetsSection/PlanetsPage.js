@@ -7,20 +7,20 @@ import { CircularProgress } from "@mui/material";
 
 const PlanetsPage = () => {
 	const [planets, setPlanets] = useState([]);
-	const [page, setPage] = useState(1);
+	const [pageNumber, setPageNumber] = useState(1);
 	const [status, setStatus] = useState("");
 	const totalPages = 6;
 
 	useEffect(() => {
 		setStatus("loading");
-		fetch(`/get-planets/${page}`, { method: "GET" })
+		fetch(`/get-planets/${pageNumber}`, { method: "GET" })
 			.then((res) => res.json())
 			.then((res) => {
 				setPlanets(res.data);
 				setStatus("ready");
 				console.log(res.data);
 			});
-	}, [page]);
+	}, [pageNumber]);
 
 	return (
 		<Container>
@@ -49,7 +49,11 @@ const PlanetsPage = () => {
 					</PlanetBox>
 				</Wrapper>
 			)}
-			<Pagination />
+			<Pagination
+				totalPages={totalPages}
+				pageNumber={pageNumber}
+				setPageNumber={setPageNumber}
+			/>
 		</Container>
 	);
 };

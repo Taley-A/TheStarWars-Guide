@@ -7,20 +7,20 @@ import { CircularProgress } from "@mui/material";
 
 const StarshipsPage = () => {
 	const [starships, setStarships] = useState([]);
-	const [page, setPage] = useState(1);
+	const [pageNumber, setPageNumber] = useState(1);
 	const [status, setStatus] = useState("");
 	const totalPages = 4;
 
 	useEffect(() => {
 		setStatus("loading");
-		fetch(`/get-starships/${page}`, { method: "GET" })
+		fetch(`/get-starships/${pageNumber}`, { method: "GET" })
 			.then((res) => res.json())
 			.then((res) => {
 				setStarships(res.data);
 				setStatus("ready");
 				console.log(res.data);
 			});
-	}, [page]);
+	}, [pageNumber]);
 
 	return (
 		<Container>
@@ -48,7 +48,11 @@ const StarshipsPage = () => {
 					</StarshipsBox>
 				</Wrapper>
 			)}
-			<Pagination />
+			<Pagination
+				totalPages={totalPages}
+				pageNumber={pageNumber}
+				setPageNumber={setPageNumber}
+			/>
 		</Container>
 	);
 };

@@ -4,8 +4,7 @@ import styled from "styled-components";
 import { FiArrowLeft } from "react-icons/fi";
 import { FiArrowRight } from "react-icons/fi";
 
-const Pagination = ({ totalPages }) => {
-	const [pageNumber, setPageNumber] = useState(1);
+const Pagination = ({ totalPages, pageNumber, setPageNumber }) => {
 	console.log(pageNumber);
 
 	const handleNextPageClick = () => {
@@ -24,7 +23,6 @@ const Pagination = ({ totalPages }) => {
 		<Pages>
 			Pages:{" "}
 			<ArrowLeft
-				// disabled={pageNumber === 1 ? true : false}
 				onClick={handleLastPageClick}
 				onKeyPress={handleLastPageClick}
 				tabIndex="0"

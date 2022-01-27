@@ -7,20 +7,20 @@ import Pagination from "../Pagination";
 
 const PeoplePage = () => {
 	const [people, setPeople] = useState([]);
-	const [page, setPage] = useState(1);
+	const [pageNumber, setPageNumber] = useState(1);
 	const [status, setStatus] = useState("loading");
 	const totalPages = 9;
 
 	useEffect(() => {
 		setStatus("loading");
-		fetch(`/get-people/${page}`, { method: "GET" })
+		fetch(`/get-people/${pageNumber}`, { method: "GET" })
 			.then((res) => res.json())
 			.then((res) => {
 				setPeople(res.data);
 				setStatus("ready");
 				console.log(res.data);
 			});
-	}, [page]);
+	}, [pageNumber]);
 
 	return (
 		<Container>
@@ -48,7 +48,11 @@ const PeoplePage = () => {
 					</PeopleBox>
 				</Wrapper>
 			)}
-			<Pagination />
+			<Pagination
+				totalPages={totalPages}
+				pageNumber={pageNumber}
+				setPageNumber={setPageNumber}
+			/>
 		</Container>
 	);
 };
