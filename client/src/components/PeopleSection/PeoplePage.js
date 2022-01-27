@@ -2,16 +2,20 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import People from "./People";
 import troopers from "../../images/stormT.png";
+import { CircularProgress } from "@mui/material";
 
 const PeoplePage = () => {
 	const [people, setPeople] = useState([]);
 	const [page, setPage] = useState(1);
+	const [status, setStatus] = useState("");
 
 	useEffect(() => {
+		setStatus("loading");
 		fetch(`/get-people/${page}`, { method: "GET" })
 			.then((res) => res.json())
 			.then((res) => {
 				setPeople(res.data);
+				setStatus("ready");
 				console.log(res.data);
 			});
 	}, [page]);
@@ -21,21 +25,27 @@ const PeoplePage = () => {
 			<Top>
 				<StormT src={troopers} />
 			</Top>
-			<Wrapper>
-				<PeopleBox>
-					{people.map((person) => {
-						return (
-							<People
-								key={Math.floor(Math.random() * 1000000)}
-								name={person.name}
-								height={person.height}
-								mass={person.mass}
-								birthday={person.birth_year}
-							/>
-						);
-					})}
-				</PeopleBox>
-			</Wrapper>
+			{status === "loading" ? (
+				<LoadBox>
+					<CircularProgress size={100} />
+				</LoadBox>
+			) : (
+				<Wrapper>
+					<PeopleBox>
+						{people.map((person) => {
+							return (
+								<People
+									key={Math.floor(Math.random() * 1000000)}
+									name={person.name}
+									height={person.height}
+									mass={person.mass}
+									birthday={person.birth_year}
+								/>
+							);
+						})}
+					</PeopleBox>
+				</Wrapper>
+			)}
 		</Container>
 	);
 };
@@ -67,6 +77,12 @@ const PeopleBox = styled.div`
 	grid-gap: 50px;
 	grid-column-gap: -60px;
 	grid-template-columns: repeat(2, 1fr);
+`;
+
+const LoadBox = styled.div`
+	display: flex;
+	justify-content: center;
+	margin: 5em;
 `;
 
 export default PeoplePage;

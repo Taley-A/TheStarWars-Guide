@@ -2,16 +2,20 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Starships from "./Starships";
 import milleniumF from "../../images/MilleniumF.png";
+import { CircularProgress } from "@mui/material";
 
 const StarshipsPage = () => {
 	const [starships, setStarships] = useState([]);
 	const [page, setPage] = useState(1);
+	const [status, setStatus] = useState("");
 
 	useEffect(() => {
+		setStatus("loading");
 		fetch(`/get-starships/${page}`, { method: "GET" })
 			.then((res) => res.json())
 			.then((res) => {
 				setStarships(res.data);
+				setStatus("ready");
 				console.log(res.data);
 			});
 	}, [page]);
@@ -21,21 +25,27 @@ const StarshipsPage = () => {
 			<Top>
 				<MilleniumPic src={milleniumF} />
 			</Top>
-			<Wrapper>
-				<StarshipsBox>
-					{starships.map((starship) => {
-						return (
-							<Starships
-								key={Math.floor(Math.random() * 1000000)}
-								name={starship.name}
-								manufacturer={starship.manufacturer}
-								passengers={starship.passengers}
-								cost={starship.cost_in_credits}
-							/>
-						);
-					})}
-				</StarshipsBox>
-			</Wrapper>
+			{status === "loading" ? (
+				<LoadBox>
+					<CircularProgress size={100} />
+				</LoadBox>
+			) : (
+				<Wrapper>
+					<StarshipsBox>
+						{starships.map((starship) => {
+							return (
+								<Starships
+									key={Math.floor(Math.random() * 1000000)}
+									name={starship.name}
+									manufacturer={starship.manufacturer}
+									passengers={starship.passengers}
+									cost={starship.cost_in_credits}
+								/>
+							);
+						})}
+					</StarshipsBox>
+				</Wrapper>
+			)}
 		</Container>
 	);
 };
@@ -70,4 +80,9 @@ const StarshipsBox = styled.div`
 	grid-template-columns: repeat(2, 1fr);
 `;
 
+const LoadBox = styled.div`
+	display: flex;
+	justify-content: center;
+	margin: 5em;
+`;
 export default StarshipsPage;

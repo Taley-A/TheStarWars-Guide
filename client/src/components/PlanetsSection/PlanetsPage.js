@@ -2,16 +2,20 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Planets from "./Planets";
 import planetpic from "../../images/planets.png";
+import { CircularProgress } from "@mui/material";
 
 const PlanetsPage = () => {
 	const [planets, setPlanets] = useState([]);
 	const [page, setPage] = useState(1);
+	const [status, setStatus] = useState("");
 
 	useEffect(() => {
+		setStatus("loading");
 		fetch(`/get-planets/${page}`, { method: "GET" })
 			.then((res) => res.json())
 			.then((res) => {
 				setPlanets(res.data);
+				setStatus("ready");
 				console.log(res.data);
 			});
 	}, [page]);
@@ -21,22 +25,28 @@ const PlanetsPage = () => {
 			<Top>
 				<PlanetPic src={planetpic} />
 			</Top>
-			<Wrapper>
-				<PlanetBox>
-					{planets.map((planet) => {
-						return (
-							<Planets
-								key={Math.floor(Math.random() * 1000000)}
-								name={planet.name}
-								rotation={planet.rotation_period}
-								terrain={planet.terrain}
-								population={planet.population}
-								climate={planet.climate}
-							/>
-						);
-					})}
-				</PlanetBox>
-			</Wrapper>
+			{status === "loading" ? (
+				<LoadBox>
+					<CircularProgress size={100} />
+				</LoadBox>
+			) : (
+				<Wrapper>
+					<PlanetBox>
+						{planets.map((planet) => {
+							return (
+								<Planets
+									key={Math.floor(Math.random() * 1000000)}
+									name={planet.name}
+									rotation={planet.rotation_period}
+									terrain={planet.terrain}
+									population={planet.population}
+									climate={planet.climate}
+								/>
+							);
+						})}
+					</PlanetBox>
+				</Wrapper>
+			)}
 		</Container>
 	);
 };
@@ -70,6 +80,12 @@ const PlanetBox = styled.div`
 	grid-gap: 50px;
 	grid-column-gap: -60px;
 	grid-template-columns: repeat(2, 1fr);
+`;
+
+const LoadBox = styled.div`
+	display: flex;
+	justify-content: center;
+	margin: 5em;
 `;
 
 export default PlanetsPage;
