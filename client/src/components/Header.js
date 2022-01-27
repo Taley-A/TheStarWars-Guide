@@ -41,12 +41,14 @@ const Header = () => {
 };
 
 const Container = styled.div`
+	font-size: 32px;
 	display: flex;
 	width: 25%;
 	flex-direction: column;
 	align-items: left;
 	padding: 20px 10px 20px 20px;
-	border: 2px solid yellow; // dont forget to remove this
+	border: 2px solid yellow;
+	border-radius: 50px;
 `;
 
 const PageLink = styled(NavLink)`
@@ -60,13 +62,14 @@ const PageLink = styled(NavLink)`
 	&:hover {
 		color: #e6e600;
 	}
-	padding: 20px;
+	padding: 40px;
 	transition: color 200ms ease-out;
 `;
 
 const Label = styled.div``;
 
 const Logo = styled.img`
+	margin-top: 32px;
 	margin-bottom: 80px;
 `;
 

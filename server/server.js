@@ -4,7 +4,12 @@ const path = require("path");
 const express = require("express");
 const morgan = require("morgan");
 
-const { getPeople, getPlanets, getStarships } = require("./handlers");
+const {
+	getPeople,
+	getPlanets,
+	getStarships,
+	searchPerson,
+} = require("./handlers");
 
 const PORT = 8000;
 
@@ -20,14 +25,17 @@ app.get("/", (req, res) => {
 	});
 });
 
+// Search person
+app.get("/search", searchPerson);
+
 // Get all characters
-app.get("/get-people", getPeople);
+app.get("/get-people/:id", getPeople);
 
 // Get all planets
-app.get("/get-people", getPlanets);
+app.get("/get-planets/:id", getPlanets);
 
 // Get all starships
-app.get("/get-people", getStarships);
+app.get("/get-starships", getStarships);
 
 // This is our catch all endpoint.
 app.get("*", (req, res) => {
