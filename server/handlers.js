@@ -9,8 +9,7 @@ const getPeople = async (req, res) => {
 		})
 			.then((res) => res.json())
 			.then((data) => {
-				console.log(data);
-				res.status(200).json({ status: 200, data });
+				res.status(200).json({ status: 200, data: data.results });
 			});
 	} catch (error) {
 		console.log(error);
@@ -25,8 +24,7 @@ const getPlanets = async (req, res) => {
 		})
 			.then((res) => res.json())
 			.then((data) => {
-				console.log(data);
-				res.status(200).json({ status: 200, data });
+				res.status(200).json({ status: 200, data: data.results });
 			});
 	} catch (error) {
 		console.log(error);
@@ -41,8 +39,7 @@ const getStarships = async (req, res) => {
 		})
 			.then((res) => res.json())
 			.then((data) => {
-				console.log(data);
-				res.status(200).json({ status: 200, data });
+				res.status(200).json({ status: 200, data: data.results });
 			});
 	} catch (error) {
 		console.log(error);
