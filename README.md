@@ -10,6 +10,7 @@ React(.js) - client-side JavaScript framework
 
 Node(.js) - JavaScript web server
 
+and SO much more!
 
 ## The application supports the following features:
 
@@ -28,7 +29,7 @@ Reference: https://swapi.dev/documentation
 ## Here is a search result of only using "Da"
 ![image](https://user-images.githubusercontent.com/88402657/151316600-a4f817e6-44c5-4e2c-b4c5-55aa5dbe1079.png)
 
-## Here is a Loading Circle you see while things render, if needed. You also see the pagination at the bottom!
+## Here is the progress circle you see while things render, if needed. You also see the pagination at the bottom!
 ![image](https://user-images.githubusercontent.com/88402657/151316332-2c67ac44-52ff-47e1-837f-7925ce7005fc.png)
 
 ## Planets Section with my cursor on another tab to see hover effect.
