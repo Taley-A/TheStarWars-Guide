@@ -1,6 +1,6 @@
 # TheStarWars-Guide
 
-##The Star Wars complete guide!
+## The Star Wars complete guide!
 
 Created using:
 
@@ -13,7 +13,7 @@ React(.js) - client-side JavaScript framework
 Node(.js) - JavaScript web server
 
 
-##The application supports the following features:
+## The application supports the following features:
 
 1. A user can view a list of people.
 2. A user can view a list of planets.
