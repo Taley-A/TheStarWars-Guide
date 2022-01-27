@@ -49,7 +49,7 @@ const getPlanets = async (req, res) => {
 
 const getStarships = async (req, res) => {
 	try {
-		fetch("https://swapi.dev/api/starships/", {
+		fetch(`https://swapi.dev/api/starships/?page=${req.params.id}`, {
 			method: "GET",
 		})
 			.then((res) => res.json())

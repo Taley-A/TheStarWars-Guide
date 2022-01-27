@@ -1,15 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 
-const Planets = ({ name, rotation, terrain, population, climate }) => {
+const Starships = ({ name, manufacturer, cost, passengers }) => {
 	return (
 		<Container>
 			<Wrapper>
 				<Name>{name}</Name>
-				<Rotation>Rotation: {rotation}</Rotation>
-				<Terrain>Terrain: {terrain}</Terrain>
-				<Population>Population: {population}</Population>
-				<Climate>Climate: {climate}</Climate>
+				<Manufacturer>Manufacturer: {manufacturer}</Manufacturer>
+				<Cost>Cost: {cost}</Cost>
+				<Passengers>Passengers: {passengers}</Passengers>
 			</Wrapper>
 		</Container>
 	);
@@ -31,22 +30,18 @@ const Wrapper = styled.div`
 
 const Name = styled.div`
 	font-size: 20px;
-	margin-top: 5px;
-	margin-bottom: 32px;
+	margin: 10px 10px 32px;
 	text-align: center;
 	text-decoration: underline;
 `;
-const Rotation = styled.div`
+const Manufacturer = styled.div`
 	margin-bottom: 16px;
 `;
-const Terrain = styled.div`
+const Cost = styled.div`
 	margin-bottom: 16px;
 `;
-const Population = styled.div`
+const Passengers = styled.div`
 	margin-bottom: 16px;
-`;
-const Climate = styled.div`
-	padding-bottom: 10px;
 `;
 
-export default Planets;
+export default Starships;

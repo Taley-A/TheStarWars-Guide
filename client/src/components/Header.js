@@ -15,25 +15,29 @@ const Header = () => {
 			<Logo src={SWLogo} />
 			<PageLink exact to="/" tabIndex="0">
 				<Label>
-					<FiSearch /> Search
+					<FiSearch />
+					Search
 				</Label>
 			</PageLink>
 
 			<PageLink to="/people" tabIndex="0">
 				<Label>
-					<FiUser /> People
+					<FiUser />
+					People
 				</Label>
 			</PageLink>
 
 			<PageLink to="/planets" tabIndex="0">
 				<Label>
-					<FcGlobe /> Planets
+					<FcGlobe />
+					Planets
 				</Label>
 			</PageLink>
 
 			<PageLink to="/starships" tabIndex="0">
 				<Label>
-					<IoRocketOutline /> Starships
+					<IoRocketOutline />
+					Starships
 				</Label>
 			</PageLink>
 		</Container>
@@ -46,7 +50,6 @@ const Container = styled.div`
 	width: 25%;
 	flex-direction: column;
 	align-items: left;
-	padding: 20px 10px 20px 20px;
 	border: 2px solid yellow;
 	border-radius: 50px;
 `;
@@ -55,15 +58,19 @@ const PageLink = styled(NavLink)`
 	color: white;
 	font-weight: bold;
 	text-decoration: none;
+	padding: 50px;
 	&.active {
 		color: yellow;
-		font-size: 1.5em;
+		font-size: 1.4em;
+		text-decoration: underline;
 	}
 	&:hover {
-		color: #e6e600;
+		background-color: black;
+		border: 2px solid yellow;
+		border-radius: 70px;
+		transition: all 200ms ease-in-out;
+		cursor: pointer;
 	}
-	padding: 40px;
-	transition: color 200ms ease-out;
 `;
 
 const Label = styled.div``;

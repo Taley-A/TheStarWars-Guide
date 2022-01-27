@@ -18,21 +18,34 @@ const Search = () => {
 	};
 
 	return (
-		<>
+		<Container>
 			<Title>Search The Galaxy</Title>
-			<SearchBox
-				type="text"
-				placeholder="Search for products here"
-				value={searchValue}
-				onChange={(ev) => setSearchValue(ev.target.value)}
-			/>
-			<SearchButton onClick={searchGalaxyClick}>Search</SearchButton>
-		</>
+			<Wrapper>
+				<SearchBox
+					type="text"
+					placeholder="Search for products here"
+					value={searchValue}
+					onChange={(ev) => setSearchValue(ev.target.value)}
+				/>
+				<SearchButton onClick={searchGalaxyClick}>Search</SearchButton>
+			</Wrapper>
+		</Container>
 	);
 };
 
+const Container = styled.div`
+	text-align: center;
+	width: 100vw;
+	height: 100vh;
+	padding: 50px;
+`;
+const Wrapper = styled.div``;
+
 const Title = styled.h1`
 	color: yellow;
+	font-size: 6em;
+	margin-bottom: 1em;
+	font-family: "Rampart One", cursive; ;
 `;
 
 const SearchBox = styled.input`
@@ -49,14 +62,22 @@ const SearchBox = styled.input`
 const SearchButton = styled.button`
 	font-size: 30px;
 	padding: 3px;
-	border-radius: 3px;
-	width: 25%;
+	border-radius: 5px;
+	width: 10%;
 	height: 10%;
 	cursor: pointer;
 	border: none;
 	background-color: yellow;
 	color: black;
+	margin-left: 2em;
 
+	&:hover {
+		color: yellow;
+		background-color: black;
+		transition: all 0.5s ease-in;
+		transform: scale(1.4);
+		cursor: pointer;
+	}
 	&:active {
 		background-color: red;
 	}

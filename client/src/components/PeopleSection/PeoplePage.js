@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import People from "./People";
+import troopers from "../../images/stormT.png";
 
 const PeoplePage = () => {
 	const [people, setPeople] = useState([]);
@@ -17,6 +18,9 @@ const PeoplePage = () => {
 
 	return (
 		<Container>
+			<Top>
+				<StormT src={troopers} />
+			</Top>
 			<Wrapper>
 				<PeopleBox>
 					{people.map((person) => {
@@ -39,10 +43,22 @@ const PeoplePage = () => {
 const Container = styled.div`
 	padding: 50px;
 	width: 100vw;
+	overflow: scroll;
+	overflow-x: hidden;
 `;
 const Wrapper = styled.div`
 	margin: 50px;
 	margin-top: 0;
+`;
+
+const Top = styled.div`
+	display: flex;
+	justify-content: center;
+`;
+
+const StormT = styled.img`
+	width: 50em;
+	height: 30em;
 `;
 
 const PeopleBox = styled.div`
@@ -50,7 +66,7 @@ const PeopleBox = styled.div`
 	justify-items: center;
 	grid-gap: 50px;
 	grid-column-gap: -60px;
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: repeat(2, 1fr);
 `;
 
 export default PeoplePage;

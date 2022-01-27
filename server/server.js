@@ -35,7 +35,7 @@ app.get("/get-people/:id", getPeople);
 app.get("/get-planets/:id", getPlanets);
 
 // Get all starships
-app.get("/get-starships", getStarships);
+app.get("/get-starships/:id", getStarships);
 
 // This is our catch all endpoint.
 app.get("*", (req, res) => {

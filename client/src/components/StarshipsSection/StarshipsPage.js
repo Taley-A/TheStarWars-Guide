@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import Planets from "./Planets";
-import planetpic from "../../images/planets.png";
+import Starships from "./Starships";
+import milleniumF from "../../images/MilleniumF.png";
 
-const PlanetsPage = () => {
-	const [planets, setPlanets] = useState([]);
+const StarshipsPage = () => {
+	const [starships, setStarships] = useState([]);
 	const [page, setPage] = useState(1);
 
 	useEffect(() => {
-		fetch(`/get-planets/${page}`, { method: "GET" })
+		fetch(`/get-starships/${page}`, { method: "GET" })
 			.then((res) => res.json())
 			.then((res) => {
-				setPlanets(res.data);
+				setStarships(res.data);
 				console.log(res.data);
 			});
 	}, [page]);
@@ -19,31 +19,29 @@ const PlanetsPage = () => {
 	return (
 		<Container>
 			<Top>
-				<PlanetPic src={planetpic} />
+				<MilleniumPic src={milleniumF} />
 			</Top>
 			<Wrapper>
-				<PlanetBox>
-					{planets.map((planet) => {
+				<StarshipsBox>
+					{starships.map((starship) => {
 						return (
-							<Planets
+							<Starships
 								key={Math.floor(Math.random() * 1000000)}
-								name={planet.name}
-								rotation={planet.rotation_period}
-								terrain={planet.terrain}
-								population={planet.population}
-								climate={planet.climate}
+								name={starship.name}
+								manufacturer={starship.manufacturer}
+								passengers={starship.passengers}
+								cost={starship.cost_in_credits}
 							/>
 						);
 					})}
-				</PlanetBox>
+				</StarshipsBox>
 			</Wrapper>
 		</Container>
 	);
 };
 
 const Container = styled.div`
-	padding: 30px;
-	padding-top: 10px;
+	padding: 50px;
 	width: 100vw;
 	overflow: scroll;
 	overflow-x: hidden;
@@ -56,15 +54,15 @@ const Wrapper = styled.div`
 const Top = styled.div`
 	display: flex;
 	justify-content: center;
+	margin-bottom: 4em;
 `;
 
-const PlanetPic = styled.img`
-	height: 30em;
-	width: 50em;
-	margin-bottom: 60px;
+const MilleniumPic = styled.img`
+	width: 40em;
+	height: 20em;
 `;
 
-const PlanetBox = styled.div`
+const StarshipsBox = styled.div`
 	display: grid;
 	justify-items: center;
 	grid-gap: 50px;
@@ -72,4 +70,4 @@ const PlanetBox = styled.div`
 	grid-template-columns: repeat(2, 1fr);
 `;
 
-export default PlanetsPage;
+export default StarshipsPage;
