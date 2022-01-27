@@ -1,7 +1,8 @@
 import React from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 const App = () => {
-	return <h1>The Star Wars Guide</h1>;
+	return "Star Wars";
 };
 
 export default App;

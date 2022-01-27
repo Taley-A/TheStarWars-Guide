@@ -4,15 +4,30 @@ const path = require("path");
 const express = require("express");
 const morgan = require("morgan");
 
-// const {
-// } = require("./handlers");
+const { getPeople, getPlanets, getStarships } = require("./handlers");
 
 const PORT = 8000;
 
 const app = express();
 
 app.use(express.json());
-app.use(morgan("dev"));
+app.use(morgan("tiny"));
+
+app.get("/", (req, res) => {
+	res.status(200).json({
+		status: 200,
+		message: "Welcome to Taley's assessment.",
+	});
+});
+
+// Get all characters
+app.get("/get-people", getPeople);
+
+// Get all planets
+app.get("/get-people", getPlanets);
+
+// Get all starships
+app.get("/get-people", getStarships);
 
 // This is our catch all endpoint.
 app.get("*", (req, res) => {
