@@ -38,7 +38,7 @@ Reference: https://swapi.dev/documentation
 ## Starships Section.
 ![image](https://user-images.githubusercontent.com/88402657/151316529-f833517d-841d-43f7-a893-472e94c7e2f4.png)
 
-## Starship section from the bottom, where you see the pagination. (Yes, it will not go below 1 or above the amount of pages of total articles. There are 10 articles per page.)
+## Starship section from the bottom, where you see the pagination. (No, it is not possible to go below page 1 or above the amount of pages of total articles. There are 10 articles maximum per page.)
 ![image](https://user-images.githubusercontent.com/88402657/151330639-4e731c28-3339-42a7-9a3f-52c840b4d1da.png)
 
 ![image](https://user-images.githubusercontent.com/88402657/151330977-b74d5288-7859-4620-bc85-43a0affe414d.png)
