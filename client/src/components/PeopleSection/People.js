@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 const People = ({ name, height, mass, birthday }) => {
+	const pages = 9;
+
 	return (
 		<Container>
 			<Wrapper>

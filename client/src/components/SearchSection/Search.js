@@ -69,6 +69,7 @@ const Container = styled.div`
 const Wrapper = styled.div``;
 
 const Title = styled.h1`
+	margin-top: 1.5em;
 	color: yellow;
 	font-size: 6em;
 	margin-bottom: 1em;

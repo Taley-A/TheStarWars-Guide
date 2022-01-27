@@ -3,11 +3,13 @@ import styled from "styled-components";
 import People from "./People";
 import troopers from "../../images/stormT.png";
 import { CircularProgress } from "@mui/material";
+import Pagination from "../Pagination";
 
 const PeoplePage = () => {
 	const [people, setPeople] = useState([]);
 	const [page, setPage] = useState(1);
-	const [status, setStatus] = useState("");
+	const [status, setStatus] = useState("loading");
+	const totalPages = 9;
 
 	useEffect(() => {
 		setStatus("loading");
@@ -46,6 +48,7 @@ const PeoplePage = () => {
 					</PeopleBox>
 				</Wrapper>
 			)}
+			<Pagination />
 		</Container>
 	);
 };

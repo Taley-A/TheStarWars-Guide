@@ -62,13 +62,16 @@ const PageLink = styled(NavLink)`
 	&.active {
 		color: yellow;
 		font-size: 1.4em;
-		text-decoration: underline;
-	}
-	&:hover {
 		background-color: black;
 		border: 2px solid yellow;
 		border-radius: 70px;
-		transition: all 200ms ease-in-out;
+	}
+	&:hover {
+		color: black;
+		transition: all 300ms ease-in-out;
+		background-color: yellow;
+		border: 2px solid black;
+		border-radius: 70px;
 		cursor: pointer;
 	}
 `;

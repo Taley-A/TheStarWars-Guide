@@ -2,12 +2,14 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Planets from "./Planets";
 import planetpic from "../../images/planets.png";
+import Pagination from "../Pagination";
 import { CircularProgress } from "@mui/material";
 
 const PlanetsPage = () => {
 	const [planets, setPlanets] = useState([]);
 	const [page, setPage] = useState(1);
 	const [status, setStatus] = useState("");
+	const totalPages = 6;
 
 	useEffect(() => {
 		setStatus("loading");
@@ -47,6 +49,7 @@ const PlanetsPage = () => {
 					</PlanetBox>
 				</Wrapper>
 			)}
+			<Pagination />
 		</Container>
 	);
 };
